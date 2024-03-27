@@ -6,7 +6,7 @@ contract UniqueAddress {
     mapping(uint256 => uint256) private addressToAmountFunded;
     uint256[] private uniqueAddress;
 
-    function addUniqueValue(uint256 _value) public {
+    function addUniqueAddress(uint256 _value) public {
         require(addressToAmountFunded[_value] == 0, "Value already exists in array");
         
         // Add the value to the uniqueArray
@@ -16,7 +16,7 @@ contract UniqueAddress {
         addressToAmountFunded[_value] = uniqueAddress.length;
     }
 
-    function getUniqueArray() public view returns (uint256[] memory) {
+    function getUniqueAddress() public view returns (uint256[] memory) {
         return uniqueAddress;
     }
 }
