@@ -27,7 +27,7 @@ contract FundMe {
     address[] public funders;
     
     address public i_owner;
-    uint256 public constant MINIMUM_USD = 50 * 10 ** 18;
+    uint256 public constant MINIMUM_ETH = 0.01 ether;
     
     constructor() {
         i_owner = msg.sender;
@@ -39,7 +39,7 @@ contract FundMe {
         i_owner = newOwner;
     }
     function fund() public payable {
-        require(msg.value >= MINIMUM_USD, "You need to spend more ETH!");
+        require(msg.value >= MINIMUM_ETH, "You need to spend more ETH!");
         // require(PriceConverter.getConversionRate(msg.value) >= MINIMUM_USD, "You need to spend more ETH!");
         addressToAmountFunded[msg.sender] += msg.value;
         funders.push(msg.sender);
